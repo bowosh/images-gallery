@@ -22,6 +22,7 @@ const App = () => {
         console.log("Returned an error : ");
         console.log(err);
       })
+      setWord('')
   }
     
   return (
