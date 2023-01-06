@@ -3,8 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/header';
 import Search from './components/Search';
 import ImageCard from './components/imagecard';
+import Welcome from './components/Welcome';
 import React from 'react';
-import { Conainer, Row, Col, Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+
 const UNSPLASH_KEY = process.env.REACT_APP_UNSPLASH_KEY;
 
 const App = () => {
@@ -34,6 +36,15 @@ const App = () => {
     setImages(images.filter((image) => image.id !== id));
   };
 
+  const handleCloneImage = (id) => {
+    for (let i = 0; i < images.length; i++) {
+      if (images[i].id === id) {
+        var arrayposition = i;
+      }
+    }
+    setImages([images[arrayposition], ...images]);
+  };
+
   return (
     <div>
       <Header title="Just another Web App"></Header>
@@ -43,17 +54,22 @@ const App = () => {
         handleSubmit={handleSearchSubmit}
       ></Search>
       <Container>
-        <Row xs={1} md={2} lg={3}>
-          {images.map((image, i) => (
-            <Col>
-              <ImageCard
-                key={i}
-                image={image}
-                deleteImage={handleDeleteImage}
-              ></ImageCard>
-            </Col>
-          ))}
-        </Row>
+        {images.length > 0 ? (
+          <Row xs={1} md={2} lg={3}>
+            {images.map((image, i) => (
+              <Col>
+                <ImageCard
+                  key={i}
+                  image={image}
+                  deleteImage={handleDeleteImage}
+                  cloneImage={handleCloneImage}
+                ></ImageCard>
+              </Col>
+            ))}
+          </Row>
+        ) : (
+          <Welcome style={{ margin: '10rem' }}></Welcome>
+        )}
       </Container>
     </div>
   );
