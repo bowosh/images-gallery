@@ -19,7 +19,7 @@ const Welcome = () => {
         <p style={{ textAlign: 'left' }}>Example Webapplication using: ...</p>
       </div>
       <p>
-        <Button bsStyle="primary">Learn more</Button>
+        <Button bsstyle="primary">Learn more</Button>
       </p>
     </div>
   );

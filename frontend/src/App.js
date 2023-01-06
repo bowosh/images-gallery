@@ -68,7 +68,7 @@ const App = () => {
             ))}
           </Row>
         ) : (
-          <Welcome style={{ margin: '10rem' }}></Welcome>
+          <Welcome></Welcome>
         )}
       </Container>
     </div>
