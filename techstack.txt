@@ -1,5 +1,6 @@
 - React
 - Flask
+- Flask-Cors 3.0.10
 - pipenv
 - Postman 10.6.0
 - requests 2.25.1

@@ -2,7 +2,7 @@ import os
 import requests
 from flask import Flask, request
 from dotenv import load_dotenv
-
+from flask_cors import CORS
 
 
 UNSPLASH_URL='https://api.unsplash.com/photos/random'
@@ -13,6 +13,7 @@ if not UNSPLASH_KEY:
     raise EnvironmentError("no KEY!!!")
 
 app = Flask(__name__)
+CORS(app)
 
 app.config["DEBUG"]=DEBUG
 
